@@ -3,7 +3,7 @@ title: G. PIMM 파티
 tags: ["dp", "dp_connection_profile", "dp_bitfield"]
 layout: problem
 level: insane
-author: 0dO
+author: 0do
 checker: ["jk410", "kiwiyou", "lycoris1600", "tony9402"]
 first_solve: xiaowuc1 (57분)
 ac_ratio: 25.926%

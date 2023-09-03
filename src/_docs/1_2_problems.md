@@ -73,7 +73,7 @@ layout: article
     <tr>
       <td>G. PIMM 파티</td>
       <td class="center"><span class="insane">매우 어려움</span></td>
-      <td>0dO</td>
+      <td>0do</td>
     </tr>
   </table>
 </div>
