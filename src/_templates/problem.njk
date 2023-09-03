@@ -1,0 +1,73 @@
+{% extends "./_templates/article.njk" %}
+
+{% block title %}<h1>{{ title }}</h1>{% endblock %}
+
+{# init #}
+{% if not level %}
+{% set level = 'ur' %}
+{% endif %}
+
+{# content #}
+{% block content %}
+{% import "./_templates/includes/problem-level.njk" as level_component %}
+<div id="{{ id }}" class="problem article-type-problem">
+  {% block problem_info %}
+  <div class="info problem-info">
+    {% block difficulty %}
+    {{ level_component.bar(level) }}
+    {% endblock %}
+
+    <table class="problem-info-descriptions">
+      <tr>
+        <th class="first" style="background-color: var(--color-rate-{{ level }}); color: #fff;">태그</th>
+        <td class="badges">
+          {% for tag in tags %}
+          <span class="badge problem-tag">#{{ tag }}</span>
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <th style="background-color: var(--color-rate-{{ level }}); color: #fff;">출제자</th>
+        <td>{{ author }}</td>
+      </tr>
+      <tr>
+        <th style="background-color: var(--color-rate-{{ level }}); color: #fff;">검수자</th>
+        <td class="badges">
+          {% for each in checker %}
+          <span class="badge problem-checker">{{ each }}</span>
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <th style="background-color: var(--color-rate-{{ level }}); color: #fff;">첫 해결</th>
+        <td>{{ first_solve }}</td>
+      </tr>
+      <tr>
+        <th class="last" style="background-color: var(--color-rate-{{ level }}); color: #fff;">정답률</th>
+        <td>{{ ac_ratio }}</td>
+      </tr>
+    </table>
+  </div>
+  {% endblock %}
+
+  {% block problem_body %}
+  {{ content | safe }}
+  {% endblock %}
+</div>
+
+<style>
+.info .problem-info-wrapper {
+  margin: .7em 0;
+}
+.problem-level {
+  display: flex;
+  align-items: center;
+  gap: .75em;
+}
+.badges {
+  display: flex;
+  gap: .5em;
+}
+</style>
+
+{% endblock %}

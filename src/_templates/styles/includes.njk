@@ -1,0 +1,76 @@
+<style>
+  table.problem-info-descriptions {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+    border-style: hidden;
+  }
+  table.problem-info-descriptions th, table.problem-info-descriptions td {
+    border: none;
+  }
+  table.problem-info-descriptions th {
+    width: 20%;
+    min-width: 55px;
+    font-weight: 800;
+    padding: .1em 1em;
+    border: 0px solid;
+  }
+  table.problem-info-descriptions th.first {
+    border-top-left-radius: .8em;
+  }
+  table.problem-info-descriptions th.last {
+    border-bottom-left-radius: .8em;
+  }
+  table.problem-info-descriptions td {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  /* problem-level.njk */
+  .level-bar__inline {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    width: 100%;
+    color: #fff;
+  }
+  .level-bar {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    width: 100%;
+    padding: .1em 1em;
+    height: 1.6em;
+    border-radius: .8em;
+    color: #fff;
+  }
+  .level-bar .level-bar-description {
+    font-weight: 800;
+  }
+  .level-bar .level-bar-stars {
+    margin-right: .5em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .level-bar svg.star-inline {
+    width: 1em !important;
+    height: 1em !important;
+  }
+  .level-badge {
+    padding: 0.1em 0.5em;
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
+    display: inline-block;
+    color: #fff;
+  }
+  svg.star-inline {
+    width: 1.3em;
+    height: 1.3em;
+  }
+  .include-level-stars {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: .5em;
+  }
+</style>

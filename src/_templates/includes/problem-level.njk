@@ -1,0 +1,185 @@
+{#
+Usage
+
+```njk
+{% import "problem-level.njk" as level_badge %}
+
+{{ lavel_badge.badge('detail', '') }}
+: ur, b5, b4, ... r2, r1
+
+{{ level_badge.badge('abstract-rate', '') }}
+: ur, b, s, g, p, d, r
+
+{{ level_badge.badge('abstract-diff', '') }}
+: easy, normal, hard, insane
+```
+#}
+
+
+{%
+  set levels = [
+    ['ur', 'unrated',     '난이도 정보 없음'],
+    ['b',  'Bronze',      '브론즈'],
+    ['b5', 'Bronze V',    '브론즈 V'],
+    ['b4', 'Bronze IV',   '브론즈 IV'],
+    ['b3', 'Bronze III',  '브론즈 III'],
+    ['b2', 'Bronze II',   '브론즈 II'],
+    ['b1', 'Bronze I',    '브론즈 I'],
+    ['s',  'Silver',      '실버'],
+    ['s5', 'Silver V',    '실버 V'],
+    ['s4', 'Silver IV',   '실버 IV'],
+    ['s3', 'Silver III',  '실버 III'],
+    ['s2', 'Silver II',   '실버 II'],
+    ['s1', 'Silver I',    '실버 I'],
+    ['g',  'Gold',        '골드'],
+    ['g5', 'Gold V',      '골드 V'],
+    ['g4', 'Gold IV',     '골드 IV'],
+    ['g3', 'Gold III',    '골드 III'],
+    ['g2', 'Gold II',     '골드 II'],
+    ['g1', 'Gold I',      '골드 I'],
+    ['p',  'Platinum',    '플래티넘'],
+    ['p5', 'Platinum V',  '플래티넘 V'],
+    ['p4', 'Platinum IV', '플래티넘 IV'],
+    ['p3', 'Platinum III','플래티넘 III'],
+    ['p2', 'Platinum II', '플래티넘 II'],
+    ['p1', 'Platinum I',  '플래티넘 I'],
+    ['d',  'Diamond',     '다이아몬드'],
+    ['d5', 'Diamond V',   '다이아몬드 V'],
+    ['d4', 'Diamond IV',  '다이아몬드 IV'],
+    ['d3', 'Diamond III', '다이아몬드 III'],
+    ['d2', 'Diamond II',  '다이아몬드 II'],
+    ['d1', 'Diamond I',   '다이아몬드 I'],
+    ['r' , 'Ruby',        '루비'],
+    ['r5', 'Ruby V',      '루비 V'],
+    ['r4', 'Ruby IV',     '루비 IV'],
+    ['r3', 'Ruby III',    '루비 III'],
+    ['r2', 'Ruby II',     '루비 II'],
+    ['r1', 'Ruby I',      '루비 I'],
+    ['easy', 'Easy', '쉬움'],
+    ['normal', 'Normal', '보통'],
+    ['little-hard', 'Little hard', '조금 어려움'],
+    ['hard', 'Hard', '어려움'],
+    ['insane', 'Insane', '매우 어려움']
+  ]
+%}
+
+<!-- index, normal, hard -->
+{%
+  set def_stars = [
+    ['ur', 0, 0],
+    ['b',  1, 0],
+    ['b5', 1, 0],
+    ['b4', 2, 0],
+    ['b3', 3, 0],
+    ['b2', 4, 0],
+    ['b1', 5, 0],
+    ['s',  2, 0],
+    ['s5', 6, 0],
+    ['s4', 7, 0],
+    ['s3', 8, 0],
+    ['s2', 9, 0],
+    ['s1', 10, 0],
+    ['g',  3, 0],
+    ['g5', 11, 0],
+    ['g4', 12, 0],
+    ['g3', 13, 0],
+    ['g2', 14, 0],
+    ['g1', 15, 0],
+    ['p',  3, 1],
+    ['p5', 14, 1],
+    ['p4', 13, 2],
+    ['p3', 12, 3],
+    ['p2', 11, 4],
+    ['p1', 10, 5],
+    ['d',  3, 2],
+    ['d5', 9, 6],
+    ['d4', 8, 7],
+    ['d3', 7, 8],
+    ['d2', 6, 9],
+    ['d1', 5, 10],
+    ['r' , 3, 3],
+    ['r5', 4, 11],
+    ['r4', 3, 12],
+    ['r3', 2, 13],
+    ['r2', 1, 14],
+    ['r1', 0, 15],
+    ['easy', 0, 1],
+    ['normal', 0, 2],
+    ['little-hard', 0, 3],
+    ['hard', 0, 4],
+    ['insane', 0, 5]
+  ]
+%}
+
+{% macro bar__inline(level) %}
+  {% for level_id, en, ko in levels %}
+    {% if level_id == level %}
+      <span
+        class="level-bar__inline"
+        style="background-color: var(--color-rate-{{ level_id }});"
+      >
+        <span class="flex-container level-bar-description">
+          {{ ko }}
+        </span>
+        <span class="flex-container level-bar-stars">
+          {{ stars(level, 'white') }}
+        </span>
+      </span>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro bar(level) %}
+  {% for level_id, en, ko in levels %}
+    {% if level_id == level %}
+      <div
+        class="level-bar"
+        style="background-color: var(--color-rate-{{ level_id }});"
+      >
+        <div class="flex-container level-bar-description">
+          {{ ko }}
+        </div>
+        <div class="flex-container level-bar-stars">
+          {{ stars(level, 'white') }}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro badge(level='ur') %}
+  {% for level_id, en, ko in levels %}
+    {% if level_id == level %}
+      <div
+        class="level-badge"
+        style="background-color: var(--color-rate-{{ level_id }});"
+      >
+        {{ ko }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro stars(level, color='none') %}
+{% import "./star.njk" as star %}
+  <div class="include-level-stars">
+  {% for level_id, normal, hard in def_stars %}
+    {% if level_id == level %}
+      {% for i in range(0, hard)%}
+        {% if color != 'none' %}
+          {{ star.hard(color) }}
+        {% else %}
+          {{ star.hard(level) }}
+        {% endif %}
+      {% endfor %}
+      {% for i in range(0, normal) %}
+        {% if color != 'none' %}
+          {{ star.normal(color) }}
+        {% else %}
+          {{ star.normal(level) }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  </div>
+{% endmacro %}

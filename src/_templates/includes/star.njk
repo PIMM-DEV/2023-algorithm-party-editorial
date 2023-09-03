@@ -1,0 +1,34 @@
+{% macro normal(color='white') %}
+{% if color == 'white' %}
+  {% set fill = '#fff' %}
+{% else %}
+  {% set fill = 'var(--color-rate-' + color + ')'%}
+{% endif %}
+<svg
+  class="star-inline"
+  viewBox="0 0 500 500"
+  xmlns="http://www.w3.org/2000/svg"
+  style="fill: {{ fill }};"
+>
+  <polygon points="349.059 250 485 485 250 349.059 15 485 150.942 250 15 15 250 150.942 485 15"/>
+</svg>
+{% endmacro %}
+
+{% macro hard(color='white') %}
+{% if color == 'white' %}
+  {% set fill = '#fff' %}
+{% else %}
+  {% set fill = 'var(--color-rate-' + color + ')'%}
+{% endif %}
+<svg
+  class="star-inline"
+  viewBox="0 0 500 500"
+  xmlns="http://www.w3.org/2000/svg"
+  style="fill: {{ fill }};"
+>
+  <g transform="matrix(2.160918951034546, 0, 0, 2.160918951034546, -423.43743896484375, 37.855030059814446)">
+    <path d="M 355.708 96.923 L 369.307 120.431 L 363.812 123.609 L 300.394 86.923 L 337.08 150.342 L 333.902 155.836 L 310.394 142.237 L 202.894 204.423 L 265.08 96.923 L 202.894 -10.577 L 310.394 51.609 L 417.894 -10.577 L 355.708 96.923 Z"/>
+    <polygon points="394.363 161.924 420.394 206.924 375.394 180.892 330.394 206.924 356.426 161.924 330.394 116.923 375.394 142.955 420.394 116.923" style="transform-origin: 330.394px 116.923px;"/>
+  </g>
+</svg>
+{% endmacro %}

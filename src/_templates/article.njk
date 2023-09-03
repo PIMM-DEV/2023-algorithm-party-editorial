@@ -1,0 +1,22 @@
+{% block slot%}
+<article>
+  <div class="article-wrapper">
+    {% block title %}<h1 class="">{{ title }}</h1>{% endblock %}
+
+    {% block content %}
+    {{ content | safe }}
+    {% endblock %}
+  </div>
+</article>
+<style>
+/*
+position: absolute;
+    content: '\a0';
+    background-color: #000;
+    height: 0.7em;
+    width: 30%;
+    top: calc(50% - 0.35em);
+    margin-left: 1em;
+*/
+</style>
+{% endblock %}

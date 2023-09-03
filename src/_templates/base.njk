@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- base.njk: start include "./includes/header.njk" -->
+  {% include "./_templates/includes/header.njk" %}
+  <!-- base.njk: end include "./includes/header.njk" -->
+  
+  <title>{{ title }}</title>
+
+  <!-- base.njk: start block "stylesheet" -->
+  {% block stylesheet %}
+  <!-- base.njk: start include "./style.njk" -->
+  {% include "./_templates/style.njk" %}
+  <!-- base.njk: end include "./style.njk" -->
+  {% endblock %}
+  <!-- base.njk: end block "stylesheet" -->
+</head>
+<body>
+  <!-- base.njk: start block "slot" -->
+  {% block slot %}
+  {{ content | safe }}
+  {% endblock %}
+  <!-- base.njk: end block "slot" -->
+</body>
+</html>
