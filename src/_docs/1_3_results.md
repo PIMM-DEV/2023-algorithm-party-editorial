@@ -28,8 +28,8 @@ layout: article
 
 ## 전남대학교 재학생
 * BOJ 핸들 (솔브 수, 페널티 점수)
-1. 1위. speciling
-2. 2위. lja3723
-3. 3위. zmxncbv777
-4. 4위. sda5129
-5. 5위. stupy3on
+1. 1위. speciling (3, 74)
+2. 2위. lja3723 (3, 274)
+3. 3위. zmxncbv777 (3, 289)
+4. 4위. sda5129 (2, 20)
+5. 5위. stupy3on (2, 40)
