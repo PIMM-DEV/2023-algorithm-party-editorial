@@ -1,6 +1,6 @@
 ---
 title: G. PIMM 파티
-tags: ["dp", "dp_connection-profile", "dp_bitfield"]
+tags: ["dp", "dp_connection_profile", "dp_bitfield"]
 layout: problem
 level: insane
 author: 0dO
