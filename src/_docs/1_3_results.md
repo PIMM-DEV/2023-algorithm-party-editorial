@@ -20,16 +20,16 @@ layout: article
     * "오늘 즐거웠지" 배경 (2문제 이상 해결 시)
 
 ## 오픈 컨테스트
-1. 1위. xiaowuc1
-2. 2위. nick832
-3. 3위. edenooo
-4. 4위. moonrabbit2
-5. 5위. jhuni
+* 1위. xiaowuc1
+* 2위. nick832
+* 3위. edenooo
+* 4위. moonrabbit2
+* 5위. jhuni
 
 ## 전남대학교 재학생
 * BOJ 핸들 (솔브 수, 페널티 점수)
-1. 1위. speciling (3, 74)
-2. 2위. lja3723 (3, 274)
-3. 3위. zmxncbv777 (3, 289)
-4. 4위. sda5129 (2, 20)
-5. 5위. stupy3on (2, 40)
+* 1위. speciling (3, 74)
+* 2위. lja3723 (3, 274)
+* 3위. zmxncbv777 (3, 289)
+* 4위. sda5129 (2, 20)
+* 5위. stupy3on (2, 40)
